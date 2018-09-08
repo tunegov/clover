@@ -25,7 +25,7 @@ function start() {
   Navigation.events().registerAppLaunchedListener(async () => {
     Navigation.setDefaultOptions({
       layout: {
-        backgroundColor: "black",
+        backgroundColor: "white",
         orientation: ["portrait"]
       },
       animations: {
@@ -41,6 +41,22 @@ function start() {
         setRoot: {
           waitForRender: true
         }
+      },
+      topBar: {
+        title: {
+          color: "white"
+        },
+        background: {
+          color: "black"
+        },
+        buttonColor: "white",
+        backButton: {
+          color: "white"
+        },
+        drawBehind: true,
+        largeTitle: {
+          visible: false
+        }
       }
     });
 
@@ -51,7 +67,7 @@ function start() {
           children: [
             {
               component: {
-                name: "clover.rent.ScrollingMapView"
+                name: "clover.rent.MapViewPage"
               }
             }
           ]

@@ -137,6 +137,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-camera')
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-ble-manager')
     compile project(':lottie-react-native')
     compile project(':react-native-view-overflow')
     compile fileTree(dir: "libs", include: ["*.jar"])

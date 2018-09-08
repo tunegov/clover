@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, View, TouchableOpacity, StatusBar } from "react-native";
 import MapView from "react-native-maps";
 import { Navigation } from "react-native-navigation";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default class MapViewPage extends PureComponent {
   static get options() {
@@ -13,10 +14,7 @@ export default class MapViewPage extends PureComponent {
       },
       topBar: {
         title: {
-          text: "My Screen"
-        },
-        largeTitle: {
-          visible: false
+          text: "Home"
         },
         drawBehind: true,
         visible: false,
@@ -32,22 +30,31 @@ export default class MapViewPage extends PureComponent {
           latitude: Number(position.coords.latitude),
           longitude: Number(position.coords.longitude)
         };
-        this.mapRef.animateToCoordinate(tempCoords, 1);
+        setTimeout(() => {
+          this.mapRef.fitToCoordinates([tempCoords]);
+        }, 2000);
       }, null);
     }, 0);
   }
 
   _redirectTo() {
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: "clover.rent.ScrollingMapView",
-        options: {
-          topBar: {
-            title: {
-              text: "Map"
+    StatusBar.setBarStyle("light-content", true);
+    Navigation.showModal({
+      stack: {
+        children: [
+          {
+            component: {
+              name: "clover.rent.QRCodeScreen",
+              options: {
+                topBar: {
+                  title: {
+                    text: "QR code"
+                  }
+                }
+              }
             }
           }
-        }
+        ]
       }
     });
   }
@@ -64,7 +71,26 @@ export default class MapViewPage extends PureComponent {
             zIndex: 12
           }}
         >
-          <Button title="Tap me" onPress={this._redirectTo.bind(this)} />
+          <TouchableOpacity
+            style={{
+              position: "absolute",
+              bottom: 20,
+              right: 20,
+              borderRadius: 50,
+              width: 65,
+              height: 65,
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "black",
+              shadowOffset: { width: -1, height: 2 },
+              shadowColor: "gray",
+              shadowOpacity: 1.0
+            }}
+            onPress={this._redirectTo.bind(this)}
+          >
+            <Icon name="qrcode" size={30} color="white" />
+          </TouchableOpacity>
         </View>
         <MapView
           ref={mapRef => (this.mapRef = mapRef)}
