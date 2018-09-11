@@ -47,6 +47,8 @@ target 'CloverCompany' do
 
   pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
 end
 
 post_install do |installer|

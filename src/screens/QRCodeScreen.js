@@ -1,52 +1,12 @@
 import React from "react";
-import { View, StatusBar, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import LottieView from "lottie-react-native";
 import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default class QRCodeScreen extends React.PureComponent {
-  static get options() {
-    return {
-      topBar: {
-        title: {
-          text: "QR code"
-        },
-        leftButtons: [
-          {
-            id: "close",
-            text: "Close",
-            color: "white"
-          }
-        ]
-      }
-    };
-  }
-
-  constructor(props) {
-    super(props);
-    Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
-  }
-
-  navigationButtonPressed({ buttonId }) {
-    if (buttonId === "close") {
-      StatusBar.setBarStyle("dark-content", true);
-      Navigation.dismissModal(this.props.componentId);
-    }
-  }
-
   _redirectTo() {
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: "clover.rent.QRCodeScanner",
-        options: {
-          topBar: {
-            title: {
-              text: "QR scanner"
-            }
-          }
-        }
-      }
-    });
+    this.props.next && this.props.next();
   }
 
   render() {
@@ -61,31 +21,38 @@ export default class QRCodeScreen extends React.PureComponent {
           }
         ]}
       >
+        <Text
+          style={{ fontSize: 18, marginHorizontal: 30, textAlign: "center" }}
+        >
+          To get in rent electric scooter you should scan QR code on a handlebar
+        </Text>
         <LottieView
-          style={{ height: 400 }}
+          style={{ height: 400, marginLeft: 10 }}
           autoPlay
-          loop={true}
+          loop={false}
           source={require("../resources/qr_code.json")}
         />
         <TouchableOpacity
+          activeOpacity={0.9}
           style={{
             position: "absolute",
-            bottom: 20,
-            right: 20,
-            borderRadius: 50,
-            width: 65,
-            height: 65,
+            bottom: 0,
+            left: 0,
+            width: Dimensions.get("window").width,
+            height: 80,
             flex: 1,
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "black",
-            shadowOffset: { width: -1, height: 2 },
+            shadowOffset: { width: 0, height: -4 },
             shadowColor: "gray",
             shadowOpacity: 1.0
           }}
           onPress={this._redirectTo.bind(this)}
         >
-          <Icon name="arrow-right" size={30} color="white" />
+          <Text style={{ color: "white", fontSize: 24, fontWeight: "600" }}>
+            OK, I got it
+          </Text>
         </TouchableOpacity>
       </View>
     );

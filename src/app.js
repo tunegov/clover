@@ -25,7 +25,7 @@ function start() {
   Navigation.events().registerAppLaunchedListener(async () => {
     Navigation.setDefaultOptions({
       layout: {
-        backgroundColor: "white",
+        backgroundColor: "black",
         orientation: ["portrait"]
       },
       animations: {
@@ -62,15 +62,27 @@ function start() {
 
     Navigation.setRoot({
       root: {
-        stack: {
-          id: "TEST",
-          children: [
-            {
-              component: {
-                name: "clover.rent.MapViewPage"
-              }
+        sideMenu: {
+          left: {
+            width: 250,
+            shouldStretchDrawer: false,
+            component: {
+              id: "DrawerLeft",
+              name: "clover.rent.DrawerLeft"
             }
-          ]
+          },
+          center: {
+            stack: {
+              id: "TEST",
+              children: [
+                {
+                  component: {
+                    name: "clover.rent.MapViewPage"
+                  }
+                }
+              ]
+            }
+          }
         }
       }
     });
@@ -79,9 +91,6 @@ function start() {
       component: {
         name: "clover.rent.Loader",
         options: {
-          animations: {
-            waitForRender: true
-          },
           overlay: {
             interceptTouchOutside: true
           },

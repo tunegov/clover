@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Animated, Easing } from "react-native";
+import { View, Animated, Easing, StatusBar } from "react-native";
 import LottieView from "lottie-react-native";
 import { Navigation } from "react-native-navigation";
+import SplashScreen from "react-native-splash-screen";
 
 export default class BasicExample extends React.PureComponent {
   state = {
@@ -10,11 +11,15 @@ export default class BasicExample extends React.PureComponent {
   };
 
   componentDidMount() {
+    SplashScreen.hide();
+
     Animated.timing(this.state.progress, {
       toValue: 1,
       duration: 2000,
       easing: Easing.linear
     }).start(() => {
+      StatusBar.setBarStyle("dark-content", true);
+
       Animated.timing(this.state.loadingProgress, {
         toValue: 100,
         duration: 500,
@@ -48,7 +53,7 @@ export default class BasicExample extends React.PureComponent {
         >
           <LottieView
             progress={this.state.progress}
-            style={{ height: 270 }}
+            style={{ height: 183 }}
             loop={false}
             source={require("../resources/loader.json")}
           />

@@ -1,8 +1,17 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, View, TouchableOpacity, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  StatusBar,
+  Dimensions
+} from "react-native";
 import MapView from "react-native-maps";
 import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import Drawer from "../utils/Drawer";
+
+const { width, height } = Dimensions.get("window");
 
 export default class MapViewPage extends PureComponent {
   static get options() {
@@ -26,12 +35,14 @@ export default class MapViewPage extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       navigator.geolocation.getCurrentPosition(position => {
-        let tempCoords = {
+        let region = {
           latitude: Number(position.coords.latitude),
-          longitude: Number(position.coords.longitude)
+          longitude: Number(position.coords.longitude),
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01 * (width / height)
         };
         setTimeout(() => {
-          this.mapRef.fitToCoordinates([tempCoords]);
+          this.mapRef.animateToRegion(region, 1000);
         }, 2000);
       }, null);
     }, 0);
@@ -44,11 +55,11 @@ export default class MapViewPage extends PureComponent {
         children: [
           {
             component: {
-              name: "clover.rent.QRCodeScreen",
+              name: "clover.rent.QRSwiper",
               options: {
-                topBar: {
-                  title: {
-                    text: "QR code"
+                animations: {
+                  showModal: {
+                    waitForRender: true
                   }
                 }
               }
@@ -59,9 +70,30 @@ export default class MapViewPage extends PureComponent {
     });
   }
 
+  _toggleMenu() {
+    Drawer.open("left");
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={{
+            position: "absolute",
+            top: 15,
+            left: 0,
+            zIndex: 100,
+            width: 75,
+            height: 75,
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+          onPress={this._toggleMenu.bind(this)}
+        >
+          <Icon name="bars" size={25} color="black" />
+        </TouchableOpacity>
         <View
           style={{
             position: "absolute",
@@ -72,13 +104,14 @@ export default class MapViewPage extends PureComponent {
           }}
         >
           <TouchableOpacity
+            activeOpacity={0.8}
             style={{
               position: "absolute",
               bottom: 20,
               right: 20,
               borderRadius: 50,
-              width: 65,
-              height: 65,
+              width: 75,
+              height: 75,
               flex: 1,
               alignItems: "center",
               justifyContent: "center",
@@ -89,7 +122,7 @@ export default class MapViewPage extends PureComponent {
             }}
             onPress={this._redirectTo.bind(this)}
           >
-            <Icon name="qrcode" size={30} color="white" />
+            <Icon name="qrcode" size={35} color="white" />
           </TouchableOpacity>
         </View>
         <MapView

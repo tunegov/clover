@@ -21,27 +21,29 @@ const PERMISSION_AUTHORIZED = "authorized";
 const CAMERA_PERMISSION = "camera";
 
 export default class ScanScreen extends PureComponent {
-  static get options() {
-    return {
-      topBar: {
-        title: {
-          text: "QR scanner"
-        },
-        backButton: {
-          title: "Back"
-        }
-      }
-    };
-  }
-
   state = {
-    showNextButton: false
+    isBarcodeFound: false
   };
 
-  _handleBarCodeRead(barcode) {
-    this.setState({
-      showNextButton: true
-    });
+  _handleBarCodeRead({ data }) {
+    if (!this.props.isCameraActive) {
+      return;
+    }
+    if (!this.state.isBarcodeFound) {
+      this.setState(
+        {
+          isBarcodeFound: true
+        },
+        () => {
+          try {
+            data = JSON.parse(data);
+            this.props.onFindBarcode && this.props.onFindBarcode(data);
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      );
+    }
   }
 
   componentDidMount() {
@@ -117,10 +119,6 @@ export default class ScanScreen extends PureComponent {
     );
   }
 
-  _redirectTo() {
-    Navigation.dismissAllModals();
-  }
-
   _renderNextButton() {
     if (!this.state.showNextButton) {
       return null;
@@ -174,7 +172,6 @@ export default class ScanScreen extends PureComponent {
         >
           {this._renderCameraMarker()}
         </Camera>
-        {this._renderNextButton()}
       </View>
     );
   }
@@ -199,11 +196,6 @@ const styles = StyleSheet.create({
     padding: 16
   },
   cameraMaskWrapper: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     zIndex: 1000,
     margin: Dimensions.get("window").width / 8,
     backgroundColor: "transparent",
