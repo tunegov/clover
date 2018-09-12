@@ -93,8 +93,9 @@ export default class ScooterScreen extends React.PureComponent {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "white",
-            shadowOffset: { width: 0, height: -4 },
+            shadowOffset: { width: 0, height: -2 },
             shadowColor: "gray",
+            shadowRadius: 4,
             shadowOpacity: 1.0
           }}
           onPress={this._rent.bind(this)}

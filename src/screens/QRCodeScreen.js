@@ -44,8 +44,9 @@ export default class QRCodeScreen extends React.PureComponent {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "black",
-            shadowOffset: { width: 0, height: -4 },
+            shadowOffset: { width: 0, height: -1 },
             shadowColor: "gray",
+            shadowRadius: 2,
             shadowOpacity: 1.0
           }}
           onPress={this._redirectTo.bind(this)}

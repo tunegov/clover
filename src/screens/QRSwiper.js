@@ -1,9 +1,17 @@
-import Swiper from "react-native-swiper";
 import React from "react";
-import { View, StatusBar, TouchableOpacity } from "react-native";
+import {
+  View,
+  StatusBar,
+  ScrollView,
+  Dimensions,
+  FlatList,
+  AsyncStorage
+} from "react-native";
 import { Navigation } from "react-native-navigation";
 import QRCodeScreen from "./QRCodeScreen";
 import QRCodeScanner from "./QRCodeScanner";
+
+const { width, height } = Dimensions.get("screen");
 
 export default class QRSwiper extends React.PureComponent {
   static get options() {
@@ -12,6 +20,7 @@ export default class QRSwiper extends React.PureComponent {
         title: {
           text: "QR code"
         },
+        drawBehind: true,
         leftButtons: [
           {
             id: "close",
@@ -24,7 +33,9 @@ export default class QRSwiper extends React.PureComponent {
   }
 
   state = {
-    isCameraActive: false
+    index: 0,
+    isCameraActive: false,
+    hideInstructions: true
   };
 
   constructor(props) {
@@ -39,12 +50,22 @@ export default class QRSwiper extends React.PureComponent {
     }
   }
 
+  componentDidMount() {
+    AsyncStorage.getItem("rent:hideInstructions").then(i =>
+      this.setState({ hideInstructions: !!i, isCameraActive: !!i })
+    );
+  }
+
   _nextScreen() {
+    AsyncStorage.setItem("rent:hideInstructions", "1");
     if (this.swiper) {
-      this.swiper.scrollBy(1, true);
-      this.setState({
-        isCameraActive: true
-      });
+      this.swiper.scrollToIndex({ index: 1, animated: true });
+      setTimeout(() => {
+        this.setState({
+          isCameraActive: true,
+          hideInstructions: true
+        });
+      }, 1000);
     }
   }
 
@@ -66,21 +87,43 @@ export default class QRSwiper extends React.PureComponent {
   }
 
   render() {
+    const { hideInstructions, isCameraActive } = this.state;
+
     return (
-      <Swiper
-        style={{ flex: 1 }}
+      <FlatList
+        data={["item1", "item2"]}
+        contentContainerStyle={{ flex: 1 }}
         horizontal={false}
-        loop={false}
-        showsButtons={false}
-        showsPagination={false}
+        scrollEnabled={false}
         ref={swiper => (this.swiper = swiper)}
-      >
-        <QRCodeScreen next={this._nextScreen.bind(this)} />
-        <QRCodeScanner
-          onFindBarcode={this._goToScooterPage.bind(this)}
-          isCameraActive={this.state.isCameraActive}
-        />
-      </Swiper>
+        renderItem={({ item, index }) =>
+          index === 0 && !hideInstructions ? (
+            <View style={{ width, height: height - 80 }} key={"QRCodeScreen"}>
+              <QRCodeScreen next={this._nextScreen.bind(this)} />
+            </View>
+          ) : (
+            <View style={{ width, height: height - 80 }} key={"QRCodeScanner"}>
+              <QRCodeScanner
+                onFindBarcode={this._goToScooterPage.bind(this)}
+                isCameraActive={isCameraActive}
+              />
+            </View>
+          )
+        }
+      />
+    );
+    return (
+      <ScrollView contentContainerStyle={{ flex: 1 }} horizontal={false}>
+        <View style={{ width, height: height - 80 }} key={"QRCodeScreen"}>
+          <QRCodeScreen next={this._nextScreen.bind(this)} />
+        </View>
+        <View style={{ width, height }} key={"QRCodeScanner"}>
+          <QRCodeScanner
+            onFindBarcode={this._goToScooterPage.bind(this)}
+            isCameraActive={this.state.isCameraActive}
+          />
+        </View>
+      </ScrollView>
     );
   }
 }

@@ -87,17 +87,17 @@ function start() {
       }
     });
 
-    await Navigation.showOverlay({
-      component: {
-        name: "clover.rent.Loader",
-        options: {
-          overlay: {
-            interceptTouchOutside: true
-          },
-          modalPresentationStyle: "overCurrentContext"
-        }
-      }
-    });
+    // await Navigation.showOverlay({
+    //   component: {
+    //     name: "clover.rent.Loader",
+    //     options: {
+    //       overlay: {
+    //         interceptTouchOutside: true
+    //       },
+    //       modalPresentationStyle: "overCurrentContext"
+    //     }
+    //   }
+    // });
   });
 }
 
