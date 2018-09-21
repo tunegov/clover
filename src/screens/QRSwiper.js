@@ -104,6 +104,9 @@ export default class QRSwiper extends React.PureComponent {
           ) : (
             <View style={{ width, height: height - 80 }} key={"QRCodeScanner"}>
               <QRCodeScanner
+                showCamera={
+                  (index === 0 && hideInstructions) || !hideInstructions
+                }
                 onFindBarcode={this._goToScooterPage.bind(this)}
                 isCameraActive={isCameraActive}
               />
@@ -111,19 +114,6 @@ export default class QRSwiper extends React.PureComponent {
           )
         }
       />
-    );
-    return (
-      <ScrollView contentContainerStyle={{ flex: 1 }} horizontal={false}>
-        <View style={{ width, height: height - 80 }} key={"QRCodeScreen"}>
-          <QRCodeScreen next={this._nextScreen.bind(this)} />
-        </View>
-        <View style={{ width, height }} key={"QRCodeScanner"}>
-          <QRCodeScanner
-            onFindBarcode={this._goToScooterPage.bind(this)}
-            isCameraActive={this.state.isCameraActive}
-          />
-        </View>
-      </ScrollView>
     );
   }
 }

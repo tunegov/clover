@@ -33,6 +33,8 @@ PODS:
     - React
   - React (0.57.0-rc.4):
     - React/Core (= 0.57.0-rc.4)
+  - react-native-blur (0.8.0):
+    - React
   - react-native-camera (1.2.0):
     - React
     - react-native-camera/RCT (= 1.2.0)
@@ -108,6 +110,7 @@ DEPENDENCIES:
   - GoogleMaps
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
+  - react-native-blur (from `../node_modules/react-native-blur`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
@@ -148,6 +151,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/lottie-react-native"
   React:
     :path: "../node_modules/react-native"
+  react-native-blur:
+    :path: "../node_modules/react-native-blur"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-google-maps:
@@ -173,6 +178,7 @@ SPEC CHECKSUMS:
   lottie-ios: 9f24be3ecb13412223b6ac70d97437742b0e3de1
   lottie-react-native: db4bd75685428c4ad0ec2f913145abff3d38b640
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  react-native-blur: c35c1f6c2c76db7108bde7ed343bd2b01d64e0c0
   react-native-camera: 68ad5143d2d0636236d46c7de8d2a6455ca52a36
   react-native-google-maps: 2cfe3b01f8422c7dae51d8764139fd70f888cfce
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
@@ -181,6 +187,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: c0dbfbf6068fefa240c37b0f71bd03b45dddac44
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 72732bd1b9f4b15d5443c160e7092432b2831c66
+PODFILE CHECKSUM: 39c70f502c3e52465c77e6fdb69b92915c34b1fb
 
 COCOAPODS: 1.5.3

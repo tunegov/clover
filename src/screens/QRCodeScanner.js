@@ -158,20 +158,33 @@ export default class ScanScreen extends PureComponent {
           backgroundColor: "black"
         }}
       >
-        <Camera
-          type={"back"}
-          style={{
-            flex: 0,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "transparent",
-            height: Dimensions.get("window").width,
-            width: Dimensions.get("window").width
-          }}
-          onBarCodeRead={this._handleBarCodeRead.bind(this)}
-        >
-          {this._renderCameraMarker()}
-        </Camera>
+        {this.props.showCamera ? (
+          <Camera
+            type={"back"}
+            style={{
+              flex: 0,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "transparent",
+              height: Dimensions.get("window").width,
+              width: Dimensions.get("window").width
+            }}
+            onBarCodeRead={this._handleBarCodeRead.bind(this)}
+          >
+            {this._renderCameraMarker()}
+          </Camera>
+        ) : (
+          <View
+            style={{
+              flex: 0,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "transparent",
+              height: Dimensions.get("window").width,
+              width: Dimensions.get("window").width
+            }}
+          />
+        )}
       </View>
     );
   }
