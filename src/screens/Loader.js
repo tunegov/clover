@@ -3,6 +3,7 @@ import { View, Animated, Easing, StatusBar } from "react-native";
 import LottieView from "lottie-react-native";
 import { Navigation } from "react-native-navigation";
 import SplashScreen from "react-native-splash-screen";
+import Appsee from 'react-native-appsee';
 
 export default class BasicExample extends React.PureComponent {
   state = {
@@ -11,6 +12,7 @@ export default class BasicExample extends React.PureComponent {
   };
 
   componentDidMount() {
+    Appsee.startScreen('Loader')
     SplashScreen.hide();
 
     Animated.timing(this.state.progress, {
@@ -40,7 +42,7 @@ export default class BasicExample extends React.PureComponent {
     };
 
     return (
-      <Animated.View style={[{ flex: 1 }, visibleToClear]}>
+      <Animated.View style={[{ flex: 1 }, visibleToClear]} >
         <View
           style={[
             {

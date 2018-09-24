@@ -10,6 +10,7 @@ import {
 import { Navigation } from "react-native-navigation";
 import QRCodeScreen from "./QRCodeScreen";
 import QRCodeScanner from "./QRCodeScanner";
+import Appsee from 'react-native-appsee';
 
 const { width, height } = Dimensions.get("screen");
 
@@ -51,6 +52,7 @@ export default class QRSwiper extends React.PureComponent {
   }
 
   componentDidMount() {
+    Appsee.startScreen("QR code scanning")
     AsyncStorage.getItem("rent:hideInstructions").then(i =>
       this.setState({ hideInstructions: !!i, isCameraActive: !!i })
     );

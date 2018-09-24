@@ -3,6 +3,7 @@ package com.clovercompany;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.appsee.reactnative.AppseeReactPackage;
 import com.cmcewen.blurview.BlurViewPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import org.reactnative.camera.RNCameraPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new AppseeReactPackage(),
             new BlurViewPackage(),
             new SplashScreenReactPackage(),
             new RNCameraPackage(),

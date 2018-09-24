@@ -10,6 +10,7 @@ import MapView from "react-native-maps";
 import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Drawer from "../utils/Drawer";
+import Appsee from 'react-native-appsee';
 
 const { width, height } = Dimensions.get("window");
 
@@ -33,6 +34,7 @@ export default class MapViewPage extends PureComponent {
   }
 
   componentDidMount() {
+    Appsee.startScreen("Map screen")
     setTimeout(() => {
       navigator.geolocation.getCurrentPosition(position => {
         let region = {
@@ -76,7 +78,7 @@ export default class MapViewPage extends PureComponent {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }} >
         <TouchableOpacity
           activeOpacity={0.8}
           style={{

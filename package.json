@@ -4,18 +4,21 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "postinstall": "cd ios && pod install",
+    "clean": "rm -rf node_modules/ rm -rf ios/Pods/ && rm -rf ios/Podfile.lock && rm -rf android/build/ && rm -rf android/app/build/",
     "test": "jest"
   },
   "dependencies": {
     "lottie-react-native": "^2.5.8",
-    "react": "16.5.0",
-    "react-native": "^0.57.0-rc.4",
+    "react": "16.5.2",
+    "react-native": "^0.57.1",
+    "react-native-appsee": "^2.4.13",
     "react-native-ble-connect": "^1.0.6",
-    "react-native-ble-manager": "^6.5.0",
+    "react-native-ble-manager": "^6.5.1",
     "react-native-blur": "^3.2.2",
     "react-native-camera": "^1.2.0",
     "react-native-maps": "^0.21.0",
-    "react-native-navigation": "^2.0.2538",
+    "react-native-navigation": "^2.0.2556",
     "react-native-qrcode-scanner": "^1.0.1",
     "react-native-splash-screen": "^3.1.1",
     "react-native-swiper": "^1.5.13",
@@ -26,7 +29,7 @@
     "babel-jest": "23.6.0",
     "babel-preset-react-native": "^5",
     "jest": "23.6.0",
-    "react-test-renderer": "16.5.0"
+    "react-test-renderer": "16.5.2"
   },
   "jest": {
     "preset": "react-native"

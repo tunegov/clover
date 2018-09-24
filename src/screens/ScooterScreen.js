@@ -11,6 +11,7 @@ import {
 import { Navigation } from "react-native-navigation";
 import { BlurView } from "react-native-blur";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import Appsee from 'react-native-appsee';
 
 import scooterWhite from "../images/scooterWhite.png";
 import grayGradient from "../images/gray-gradient.jpg";
@@ -41,6 +42,10 @@ export default class ScooterScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
+  }
+
+  componentDidMount() {
+    Appsee.startScreen("Scooter screen")
   }
 
   navigationButtonPressed({ buttonId }) {

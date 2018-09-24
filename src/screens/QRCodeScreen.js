@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import LottieView from "lottie-react-native";
 import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import Appsee from 'react-native-appsee';
 
 export default class QRCodeScreen extends React.PureComponent {
   _redirectTo() {
