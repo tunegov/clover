@@ -5,7 +5,8 @@ import {
   ScrollView,
   Dimensions,
   FlatList,
-  AsyncStorage
+  AsyncStorage,
+  TouchableOpacity
 } from "react-native";
 import { Navigation } from "react-native-navigation";
 import QRCodeScreen from "./QRCodeScreen";
@@ -36,7 +37,7 @@ export default class QRSwiper extends React.PureComponent {
   state = {
     index: 0,
     isCameraActive: false,
-    hideInstructions: true
+    hideInstructions: false
   };
 
   constructor(props) {
@@ -53,9 +54,9 @@ export default class QRSwiper extends React.PureComponent {
 
   componentDidMount() {
     Appsee.startScreen("QR code scanning")
-    AsyncStorage.getItem("rent:hideInstructions").then(i =>
-      this.setState({ hideInstructions: !!i, isCameraActive: !!i })
-    );
+    // AsyncStorage.getItem("rent:hideInstructions").then(i =>
+    //   this.setState({ hideInstructions: !!i, isCameraActive: !!i })
+    // );
   }
 
   _nextScreen() {
@@ -104,16 +105,21 @@ export default class QRSwiper extends React.PureComponent {
               <QRCodeScreen next={this._nextScreen.bind(this)} />
             </View>
           ) : (
-            <View style={{ width, height: height - 80 }} key={"QRCodeScanner"}>
-              <QRCodeScanner
-                showCamera={
-                  (index === 0 && hideInstructions) || !hideInstructions
-                }
-                onFindBarcode={this._goToScooterPage.bind(this)}
-                isCameraActive={isCameraActive}
-              />
-            </View>
-          )
+              <TouchableOpacity
+                style={{ width, height: height - 80 }}
+                key={"QRCodeScanner"}
+                onPress={this._goToScooterPage.bind(this, {})}
+
+              >
+                <QRCodeScanner
+                  showCamera={
+                    (index === 1 && hideInstructions) || !hideInstructions
+                  }
+                  onFindBarcode={this._goToScooterPage.bind(this)}
+                  isCameraActive={isCameraActive && index !== 0}
+                />
+              </TouchableOpacity>
+            )
         }
       />
     );

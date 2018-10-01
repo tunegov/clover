@@ -44,7 +44,7 @@ export default class MapViewPage extends PureComponent {
           longitudeDelta: 0.01 * (width / height)
         };
         setTimeout(() => {
-          this.mapRef.animateToRegion(region, 1000);
+          this.mapRef.animateToRegion(region, 1700);
         }, 2000);
       }, null);
     }, 0);

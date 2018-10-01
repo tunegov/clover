@@ -140,14 +140,14 @@ export default class ScooterScreen extends React.PureComponent {
               flex: 0,
               flexDirection: "row",
               justifyContent: "space-around",
-              marginHorizontal: 30
+              marginHorizontal: 50
             }}
           >
             <View
               style={{
                 flex: 1,
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
               <View
@@ -311,7 +311,7 @@ export default class ScooterScreen extends React.PureComponent {
             backgroundColor: "#e74c3c",
             shadowOffset: { width: 0, height: -1 },
             shadowColor: "#e74c3c",
-            shadowRadius: 2,
+            shadowRadius: 0,
             shadowOpacity: 1.0,
             zIndex: 200
           }}

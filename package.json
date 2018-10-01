@@ -18,7 +18,7 @@
     "react-native-blur": "^3.2.2",
     "react-native-camera": "^1.2.0",
     "react-native-maps": "^0.21.0",
-    "react-native-navigation": "^2.0.2556",
+    "react-native-navigation": "^2.0.2568",
     "react-native-qrcode-scanner": "^1.0.1",
     "react-native-splash-screen": "^3.1.1",
     "react-native-swiper": "^1.5.13",
@@ -29,7 +29,8 @@
     "babel-jest": "23.6.0",
     "babel-preset-react-native": "^5",
     "jest": "23.6.0",
-    "react-test-renderer": "16.5.2"
+    "react-test-renderer": "16.5.2",
+    "schedule": "0.4.0"
   },
   "jest": {
     "preset": "react-native"
