@@ -18,7 +18,8 @@ export default class BasicExample extends React.PureComponent {
     Animated.timing(this.state.progress, {
       toValue: 1,
       duration: 2000,
-      easing: Easing.linear
+      easing: Easing.linear,
+      useNativeDriver: true
     }).start(() => {
       StatusBar.setBarStyle("dark-content", true);
 
