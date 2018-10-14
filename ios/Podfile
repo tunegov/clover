@@ -46,6 +46,8 @@ target 'CloverCompany' do
   pod 'react-native-blur', :path => '../node_modules/react-native-blur'
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+
 end
 
 post_install do |installer|
