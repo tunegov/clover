@@ -1,0 +1,9 @@
+{
+    "drawer": {
+        "payments": "Payments",
+        "ridesHistory": "Rides history",
+        "settings": "Settings",
+        "about": "About",
+        "rides": "Rides"
+    }
+}

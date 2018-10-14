@@ -11,6 +11,13 @@ import ScooterScreen  from "./ScooterScreen";
 import SigninScreen   from "./Signin";
 import SignupScreen   from "./Signup";
 import * as ROUTES    from "./Common/constants";
+import I18n 		  from "react-native-i18n"
+
+I18n.fallbacks = true
+I18n.translations = {
+	en: require("./Common/translations/ua"),
+	ua: require("./Common/translations/ua")
+}
 
 function registerScreens() {
 	Navigation.registerComponent( ROUTES.SPLASH_SCREEN, () => SplashScreen );

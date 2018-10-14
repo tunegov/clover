@@ -5,6 +5,7 @@ import Drawer from "../Common/components/Drawer";
 import MenuSection from './components/MenuSection';
 import UserInfo from './components/UserInfo';
 import styles from './containerStyles';
+import I18n from 'react-native-i18n'
 
 export default class DrawerLeft extends React.PureComponent {
   constructor(props) {
@@ -26,10 +27,10 @@ export default class DrawerLeft extends React.PureComponent {
 
   _getMenuItems() {
     return [
-      { title: 'Payments', iconName: 'credit-card', onPress: () => this._redirectTo() },
-      { title: 'Rides history', iconName: 'history', onPress: () => this._redirectTo()},
-      { title: 'Settings', iconName: 'cog', onPress: () => this._redirectTo()},
-      { title: 'About', iconName: 'info-circle', onPress: () => this._redirectTo()},
+      { title: I18n.translate("drawer.payments"), iconName: 'credit-card', onPress: () => this._redirectTo() },
+      { title: I18n.translate("drawer.ridesHistory"), iconName: 'history', onPress: () => this._redirectTo()},
+      { title: I18n.translate("drawer.settings"), iconName: 'cog', onPress: () => this._redirectTo()},
+      { title: I18n.translate("drawer.about"), iconName: 'info-circle', onPress: () => this._redirectTo()},
     ]
   }
 

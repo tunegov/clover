@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, Image } from "react-native";
 import styles from "./styles";
 import avatar from "../../../Common/resources/images/avatar.png";
+import I18n from 'react-native-i18n'
 
 const UserInfo = ({ name, avatarUrl, rides }) => (
     <View style={styles.container}>
@@ -13,7 +14,7 @@ const UserInfo = ({ name, avatarUrl, rides }) => (
         {name}
       </Text>
       <Text style={styles.text}>
-        Rides: <Text style={styles.bold}>{rides}</Text>
+        {I18n.t('drawer.rides')}: <Text style={styles.bold}>{rides}</Text>
       </Text>
     </View>
   </View>
