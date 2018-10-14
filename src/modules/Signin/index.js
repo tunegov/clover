@@ -1,14 +1,16 @@
 import React, { PureComponent }                                       from 'react';
-import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StatusBar, StyleSheet, View } from 'react-native'
 import { Navigation }                                                 from "react-native-navigation";
-import RoundedButton                                                  from "../Common/components/RoundedButton"
-
-import logo from '../Common/resources/images/CloverLogoBlack.png'
+import Slogan 														  from "./components/Slogan";
+import ButtonsGroup													  from "./components/ButtonsGroup";
+import Logo												  			  from "./components/Logo";
 
 export default class SigninScreen extends PureComponent {
 	constructor( props ) {
 		super( props );
 		Navigation.events().bindComponent( this );
+		this._toLogin = this._toLogin.bind(this);
+		this._toSignup = this._toSignup.bind(this);
 	}
 	
 	static get options() {
@@ -67,34 +69,9 @@ export default class SigninScreen extends PureComponent {
 	render() {
 		return (
 			<View style={ styles.fullScreen }>
-				<View style={ styles.logo }>
-					<Image source={ logo } style={ styles.logoImage }/>
-				</View>
-				<View style={ styles.textGroup }>
-					<Text style={ [ styles.bigText, styles.textRed ] }>
-						Start
-					</Text>
-					<Text style={ styles.bigText }>
-						your
-					</Text>
-					<Text style={ styles.bigText }>
-						adventure
-					</Text>
-				</View>
-				
-				<View style={ styles.bottom }>
-					<RoundedButton text={ 'Log in' } color={ '#ee5253' } onPress={ this._toLogin.bind( this ) }/>
-					<View style={ styles.signUpGroup }>
-						<Text>
-							You don't have an account?
-						</Text>
-						<TouchableOpacity activeOpacity={ 0.7 } onPress={ this._toSignup.bind( this ) }>
-							<Text style={ styles.signUpButton }>
-								Sign up here.
-							</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
+				<Logo/>
+				<Slogan/>
+				<ButtonsGroup logIn={this._toLogin} signUp={this._toSignup}/>
 			</View>
 		);
 	}
@@ -106,40 +83,5 @@ const styles = StyleSheet.create( {
 		flex: 1,
 		marginHorizontal: 40,
 		paddingTop: 50
-	},
-	logo: {
-		flex: 1
-	},
-	logoImage: {
-		width: 70,
-		height: 70,
-		resizeMode: 'cover'
-	},
-	textGroup: {
-		flex: 2
-	},
-	bigText: {
-		fontSize: 45,
-		fontWeight: '800',
-		color: 'black'
-	},
-	textRed: {
-		color: '#ee5253'
-	},
-	bottom: {
-		flex: 1
-	},
-	signUpGroup: {
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'baseline',
-		marginTop: 25
-	},
-	signUpButton: {
-		color: '#ee5253',
-		paddingLeft: 5,
-		fontSize: 15,
-		fontWeight: '600'
 	}
 } )

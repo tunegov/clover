@@ -5,5 +5,10 @@
         "settings": "Settings",
         "about": "About",
         "rides": "Rides"
+    },
+    "sign_in": {
+        "start": "Start",
+        "your": "your",
+        "adventure": "adventure"
     }
 }
