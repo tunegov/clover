@@ -1,12 +1,10 @@
 import React                                                                     from "react";
-import { AsyncStorage, Dimensions, FlatList, StatusBar, TouchableOpacity, View } from "react-native";
-import Appsee                                                                    from 'react-native-appsee';
+import { AsyncStorage, FlatList, StatusBar, TouchableOpacity, View }             from "react-native";
 import { Navigation }                                                            from "react-native-navigation";
 import QRCodeScanner                                                             from "../QRScanner";
 import QRCodeScreen                                                              from "../QRCode";
-
-const { width, height } = Dimensions.get( "screen" );
-
+import styles																	 from "./containerStyles";
+import * as ROUTES 																 from "../Common/constants";
 export default class QRSwiper extends React.PureComponent {
 	state = {
 		index: 0,
@@ -44,13 +42,6 @@ export default class QRSwiper extends React.PureComponent {
 		}
 	}
 	
-	componentDidMount() {
-		Appsee.startScreen( "QR code scanning" )
-		// AsyncStorage.getItem("rent:hideInstructions").then(i =>
-		//   this.setState({ hideInstructions: !!i, isCameraActive: !!i })
-		// );
-	}
-	
 	_nextScreen() {
 		AsyncStorage.setItem( "rent:hideInstructions", "1" );
 		if ( this.swiper ) {
@@ -67,7 +58,7 @@ export default class QRSwiper extends React.PureComponent {
 	_goToScooterPage( { model, uuid } ) {
 		Navigation.push( this.props.componentId, {
 			component: {
-				name: "clover.rent.ScooterScreen",
+				name: ROUTES.SCOOTER_INFO,
 				passProps: {
 					model,
 					uuid
@@ -80,6 +71,14 @@ export default class QRSwiper extends React.PureComponent {
 			}
 		} );
 	}
+
+	showCamera(index) {
+		const { hideInstructions } = this.state;
+		return (index === 1 && hideInstructions) || !hideInstructions
+	}
+
+	keyExtractor = (item, index) => String(index);
+
 	
 	render() {
 		const { hideInstructions, isCameraActive } = this.state;
@@ -87,29 +86,24 @@ export default class QRSwiper extends React.PureComponent {
 		return (
 			<FlatList
 				data={ [ "item1", "item2" ] }
-				contentContainerStyle={ { flex: 1 } }
+				contentContainerStyle={ styles.flex1 }
 				horizontal={ false }
 				scrollEnabled={ false }
-				ref={ swiper => (
-					this.swiper = swiper
-				) }
+				keyExtractor={this.keyExtractor}
+				ref={ swiper => this.swiper = swiper }
 				renderItem={ ( { item, index } ) =>
 					index === 0 && !hideInstructions ? (
-						<View style={ { width, height: height - 80 } } key={ "QRCodeScreen" }>
+						<View style={ styles.wrap } key={ "QRCodeScreen" }>
 							<QRCodeScreen next={ this._nextScreen.bind( this ) }/>
 						</View>
 					) : (
 						<TouchableOpacity
-							style={ { width, height: height - 80 } }
+							style={ styles.wrap }
 							key={ "QRCodeScanner" }
 							onPress={ this._goToScooterPage.bind( this, {} ) }
 						>
 							<QRCodeScanner
-								showCamera={
-									(
-										index === 1 && hideInstructions
-									) || !hideInstructions
-								}
+								showCamera={this.showCamera(index)}
 								onFindBarcode={ this._goToScooterPage.bind( this ) }
 								isCameraActive={ isCameraActive && index !== 0 }
 							/>
