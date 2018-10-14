@@ -5,6 +5,7 @@ import Slogan 														  from "./components/Slogan";
 import ButtonsGroup													  from "./components/ButtonsGroup";
 import Logo												  			  from "./components/Logo";
 import styles 														  from './containerStyles';
+import * as ROUTES													  from '../Common/constants/index';
 export default class SigninScreen extends PureComponent {
 	constructor( props ) {
 		super( props );
@@ -43,7 +44,7 @@ export default class SigninScreen extends PureComponent {
 	_toLogin() {
 		Navigation.push( this.props.componentId, {
 			component: {
-				name: "clover.rent.LoginScreen",
+				name: ROUTES.LOG_IN,
 				options: {
 					push: {
 						waitForRender: true
@@ -56,7 +57,7 @@ export default class SigninScreen extends PureComponent {
 	_toSignup() {
 		Navigation.push( this.props.componentId, {
 			component: {
-				name: "clover.rent.SignupScreen",
+				name: ROUTES.SIGN_UP,
 				options: {
 					push: {
 						waitForRender: true
