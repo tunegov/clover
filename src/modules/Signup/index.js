@@ -4,10 +4,10 @@ import { Navigation }                                                           
 import Icon
                                                                                      from "react-native-vector-icons/FontAwesome5";
 import DismissKeyboardView
-                                                                                     from '../components/DismissKeyboardView'
-import RoundedButton                                                                 from '../components/RoundedButton'
+                                                                                     from '../Common/components/DismissKeyboardView'
+import RoundedButton                                                                 from '../Common/components/RoundedButton'
 import TextInputWithText
-                                                                                     from '../components/TextInputWithText'
+                                                                                     from '../Common/components/TextInputWithText'
 
 export default class SignupScreen extends Component {
 	state = {

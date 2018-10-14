@@ -1,9 +1,9 @@
 import React, { PureComponent }                                       from 'react';
 import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Navigation }                                                 from "react-native-navigation";
-import RoundedButton                                                  from '../components/RoundedButton'
+import RoundedButton                                                  from "../Common/components/RoundedButton"
 
-import logo from '../resources/images/CloverLogoBlack.png'
+import logo from '../Common/resources/images/CloverLogoBlack.png'
 
 export default class SigninScreen extends PureComponent {
 	constructor( props ) {

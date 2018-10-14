@@ -1,5 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - BVLinearGradient (2.4.2):
+    - React
   - DoubleConversion (1.1.6)
   - Folly (2016.10.31.00):
     - boost-for-react-native
@@ -28,81 +30,82 @@ PODS:
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
   - lottie-ios (2.5.0)
-  - lottie-react-native (2.5.8):
+  - lottie-react-native (2.5.9):
     - lottie-ios
     - React
-  - React (0.57.1):
-    - React/Core (= 0.57.1)
+  - React (0.57.3):
+    - React/Core (= 0.57.3)
   - react-native-blur (0.8.0):
     - React
-  - react-native-camera (1.2.0):
+  - react-native-camera (1.3.0):
     - React
-    - react-native-camera/RCT (= 1.2.0)
-    - react-native-camera/RN (= 1.2.0)
-  - react-native-camera/RCT (1.2.0):
+    - react-native-camera/RCT (= 1.3.0)
+    - react-native-camera/RN (= 1.3.0)
+  - react-native-camera/RCT (1.3.0):
     - React
-  - react-native-camera/RN (1.2.0):
+  - react-native-camera/RN (1.3.0):
     - React
-  - react-native-google-maps (0.21.0):
+  - react-native-google-maps (0.22.0):
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 2.5.0)
     - React
-  - react-native-maps (0.21.0):
+  - react-native-maps (0.22.0):
     - React
   - react-native-splash-screen (3.1.1):
     - React
-  - React/Core (0.57.1):
-    - yoga (= 0.57.1.React)
-  - React/CxxBridge (0.57.1):
+  - React/Core (0.57.3):
+    - yoga (= 0.57.3.React)
+  - React/CxxBridge (0.57.3):
     - Folly (= 2016.10.31.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.57.1):
+  - React/cxxreact (0.57.3):
     - boost-for-react-native (= 1.63.0)
     - Folly (= 2016.10.31.00)
     - React/jschelpers
     - React/jsinspector
-  - React/DevSupport (0.57.1):
+  - React/DevSupport (0.57.3):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.57.1)
-  - React/jschelpers (0.57.1):
+  - React/fishhook (0.57.3)
+  - React/jschelpers (0.57.3):
     - Folly (= 2016.10.31.00)
     - React/PrivateDatabase
-  - React/jsinspector (0.57.1)
-  - React/PrivateDatabase (0.57.1)
-  - React/RCTActionSheet (0.57.1):
+  - React/jsinspector (0.57.3)
+  - React/PrivateDatabase (0.57.3)
+  - React/RCTActionSheet (0.57.3):
     - React/Core
-  - React/RCTAnimation (0.57.1):
+  - React/RCTAnimation (0.57.3):
     - React/Core
-  - React/RCTBlob (0.57.1):
+  - React/RCTBlob (0.57.3):
     - React/Core
-  - React/RCTGeolocation (0.57.1):
+  - React/RCTGeolocation (0.57.3):
     - React/Core
-  - React/RCTImage (0.57.1):
+  - React/RCTImage (0.57.3):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.57.1):
+  - React/RCTLinkingIOS (0.57.3):
     - React/Core
-  - React/RCTNetwork (0.57.1):
+  - React/RCTNetwork (0.57.3):
     - React/Core
-  - React/RCTSettings (0.57.1):
+  - React/RCTSettings (0.57.3):
     - React/Core
-  - React/RCTText (0.57.1):
+  - React/RCTText (0.57.3):
     - React/Core
-  - React/RCTVibration (0.57.1):
+  - React/RCTVibration (0.57.3):
     - React/Core
-  - React/RCTWebSocket (0.57.1):
+  - React/RCTWebSocket (0.57.3):
     - React/Core
     - React/fishhook
     - React/RCTBlob
   - ReactNativePermissions (1.1.1):
     - React
-  - RNVectorIcons (5.0.0):
+  - RNVectorIcons (6.0.2):
     - React
-  - yoga (0.57.1.React)
+  - yoga (0.57.3.React)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -139,6 +142,8 @@ SPEC REPOS:
     - GoogleMaps
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   Folly:
@@ -170,6 +175,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  BVLinearGradient: 6d8909e3fc6b089defa4b89d967441fa6827a2ee
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
@@ -179,14 +185,14 @@ SPEC CHECKSUMS:
   lottie-react-native: db4bd75685428c4ad0ec2f913145abff3d38b640
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   react-native-blur: c35c1f6c2c76db7108bde7ed343bd2b01d64e0c0
-  react-native-camera: 68ad5143d2d0636236d46c7de8d2a6455ca52a36
-  react-native-google-maps: 2cfe3b01f8422c7dae51d8764139fd70f888cfce
+  react-native-camera: ec435a5b2498faa288b4574e005d5c1021f18608
+  react-native-google-maps: b946d62e25dc66097921ed82520e45b0b081768a
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   react-native-splash-screen: 8e3f866dc79bfe533baeffd0a38c33f7a7eae7f8
   ReactNativePermissions: 9f2d9c45c98800795e6c2ed330e25d11a66a8169
-  RNVectorIcons: c0dbfbf6068fefa240c37b0f71bd03b45dddac44
+  RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 39c70f502c3e52465c77e6fdb69b92915c34b1fb
+PODFILE CHECKSUM: 5f6ffdd3365f9f2da9c1d8c66db986c409fa59ab
 
 COCOAPODS: 1.5.3

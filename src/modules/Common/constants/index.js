@@ -1,0 +1,13 @@
+export const SPLASH_SCREEN = "clover.rent.Loader";
+export const MAP_VIEW = "clover.rent.MapViewPage";
+export const QR_CODE = "clover.rent.QRCodeScreen";
+export const QR_SWIPER = "clover.rent.QRSwiper";
+export const DRAWER_LEFT = "clover.rent.DrawerLeft";
+export const SIGN_IN =  "clover.rent.SigninScreen";
+export const LOG_IN = "clover.rent.LoginScreen";
+export const SIGN_UP = "clover.rent.SignupScreen";
+export const SCOOTER_INFO = "clover.rent.ScooterScreen";
+export const QR_CODE_SCANNER = "clover.rent.QRCodeScanner";
+export const BLE = "clover.rent.BleScreen";
+export const LEFT_SIDE_MENU_ID = "DrawerLeft";
+export const RIGHT_SIDE_MENU_ID = "DrawerRight";

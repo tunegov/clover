@@ -5,7 +5,7 @@ import { Navigation } from "react-native-navigation";
 import SplashScreen from "react-native-splash-screen";
 import Appsee from 'react-native-appsee';
 
-export default class BasicExample extends React.PureComponent {
+export default class Splash extends React.PureComponent {
   state = {
     loadingProgress: new Animated.Value(0),
     progress: new Animated.Value(0)
@@ -58,7 +58,7 @@ export default class BasicExample extends React.PureComponent {
             progress={this.state.progress}
             style={{ height: 183 }}
             loop={false}
-            source={require("../resources/loader.json")}
+            source={require("../Common/resources/loader.json")}
           />
         </View>
       </Animated.View>

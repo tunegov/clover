@@ -2,14 +2,13 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
   ScrollView,
   StatusBar,
   TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Navigation } from "react-native-navigation";
-import Drawer from "../utils/Drawer";
+import Drawer from "../Common/components/Drawer";
 
 export default class DrawerLeft extends React.PureComponent {
   constructor(props) {

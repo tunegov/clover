@@ -2,9 +2,9 @@ import React, { Component }                                    from 'react';
 import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Navigation }                                          from "react-native-navigation";
 import Icon                                                    from "react-native-vector-icons/FontAwesome5";
-import DismissKeyboardView                                     from '../components/DismissKeyboardView'
-import RoundedButton                                           from '../components/RoundedButton'
-import TextInputWithIcon                                       from '../components/TextInputWithIcon'
+import DismissKeyboardView                                     from '../Common/components/DismissKeyboardView'
+import RoundedButton                                           from '../Common/components/RoundedButton'
+import TextInputWithIcon                                       from '../Common/components/TextInputWithIcon'
 
 export default class LoginScreen extends Component {
 	static get options() {

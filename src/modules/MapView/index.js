@@ -9,7 +9,7 @@ import {
 import MapView from "react-native-maps";
 import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import Drawer from "../utils/Drawer";
+import Drawer from "../Common/components/Drawer";
 import Appsee from 'react-native-appsee';
 
 const { width, height } = Dimensions.get("window");

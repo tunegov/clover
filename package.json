@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "lottie-react-native": "^2.5.9",
-    "react": "16.5.2",
+    "react": "16.6.0-alpha.8af6728",
     "react-native": "^0.57.3",
     "react-native-app-intro-slider": "^1.0.1",
     "react-native-appsee": "^2.4.14",
@@ -31,8 +31,8 @@
     "babel-jest": "23.6.0",
     "babel-preset-react-native": "^5",
     "jest": "23.6.0",
-    "react-test-renderer": "16.5.2",
-    "schedule": "0.5.0"
+    "react-test-renderer": "16.6.0-alpha.8af6728",
+    "schedule": "^0.4.0"
   },
   "jest": {
     "preset": "react-native"

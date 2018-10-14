@@ -2,8 +2,8 @@ import React                                                                    
 import { AsyncStorage, Dimensions, FlatList, StatusBar, TouchableOpacity, View } from "react-native";
 import Appsee                                                                    from 'react-native-appsee';
 import { Navigation }                                                            from "react-native-navigation";
-import QRCodeScanner                                                             from "./QRCodeScanner";
-import QRCodeScreen                                                              from "./QRCodeScreen";
+import QRCodeScanner                                                             from "../QRScanner";
+import QRCodeScreen                                                              from "../QRCode";
 
 const { width, height } = Dimensions.get( "screen" );
 

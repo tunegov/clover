@@ -13,9 +13,9 @@ import { BlurView } from "react-native-blur";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Appsee from 'react-native-appsee';
 
-import scooterWhite from "../resources/images/scooterWhite.png";
-import grayGradient from "../resources/images/gray-gradient.jpg";
-import xiaomi       from "../resources/images/xiaomi.png";
+import scooterWhite from "../Common/resources/images/scooterWhite.png";
+import grayGradient from "../Common/resources/images/gray-gradient.jpg";
+import xiaomi       from "../Common/resources/images/xiaomi.png";
 
 export default class ScooterScreen extends React.PureComponent {
   static get options() {

@@ -1,5 +1,8 @@
 import { Navigation } from "react-native-navigation";
-import { LEFT_SIDE_MENU_ID, RIGHT_SIDE_MENU_ID } from "../constants/constants";
+//import { LEFT_SIDE_MENU_ID, RIGHT_SIDE_MENU_ID } from "../constants";
+
+export const LEFT_SIDE_MENU_ID = "DrawerLeft";
+export const RIGHT_SIDE_MENU_ID = "DrawerRight";
 
 function getId(side) {
   if (side === "left") return LEFT_SIDE_MENU_ID;

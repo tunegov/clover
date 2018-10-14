@@ -1,17 +1,13 @@
 import React, { PureComponent } from "react";
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Animated,
   Image,
   Dimensions,
-  TouchableOpacity,
   TouchableWithoutFeedback
 } from "react-native";
-import { Navigation } from "react-native-navigation";
 import LoaderNoAnimation from "./LoaderNoAnimation";
 
 import MapView from "react-native-maps";
