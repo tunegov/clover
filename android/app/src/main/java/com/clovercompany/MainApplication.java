@@ -3,6 +3,9 @@ package com.clovercompany;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import it.innove.BleManagerPackage;
 import com.appsee.reactnative.AppseeReactPackage;
 import com.cmcewen.blurview.BlurViewPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -31,6 +34,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new MapsPackage(),
+            new LinearGradientPackage(),
+            new BleManagerPackage(),
             new AppseeReactPackage(),
             new BlurViewPackage(),
             new SplashScreenReactPackage(),

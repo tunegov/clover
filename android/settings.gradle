@@ -1,4 +1,10 @@
 rootProject.name = 'CloverCompany'
+include ':react-native-maps'
+project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/lib/android')
+include ':react-native-linear-gradient'
+project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+include ':react-native-ble-connect'
+project(':react-native-ble-connect').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ble-connect/android')
 include ':react-native-appsee'
 project(':react-native-appsee').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-appsee/android')
 include ':react-native-blur'

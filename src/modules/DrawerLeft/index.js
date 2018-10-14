@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  StatusBar,
-  TouchableOpacity
-} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { View, ScrollView, StatusBar } from "react-native";
 import { Navigation } from "react-native-navigation";
 import Drawer from "../Common/components/Drawer";
+import MenuSection from './components/MenuSection';
+import UserInfo from './components/UserInfo';
+import styles from './containerStyles';
 
 export default class DrawerLeft extends React.PureComponent {
   constructor(props) {
@@ -28,110 +24,33 @@ export default class DrawerLeft extends React.PureComponent {
     Drawer.close("left");
   }
 
+  _getMenuItems() {
+    return [
+      { title: 'Payments', iconName: 'credit-card', onPress: () => this._redirectTo() },
+      { title: 'Rides history', iconName: 'history', onPress: () => this._redirectTo()},
+      { title: 'Settings', iconName: 'cog', onPress: () => this._redirectTo()},
+      { title: 'About', iconName: 'info-circle', onPress: () => this._redirectTo()},
+    ]
+  }
+
+  getNavigationLayout() {
+    return this._getMenuItems().map((item, index) => (
+      <MenuSection 
+        key={index}
+        onPress={item.onPress}
+        title={item.title} 
+        iconName={item.iconName}/>
+    ))
+  }
+
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "space-between"
-        }}
-      >
-        <View
-          style={{
-            height: 80,
-            width: 250,
-            margin: 20,
-            marginTop: 30,
-            flexDirection: "row"
-          }}
-        >
-          <View style={{ flex: 1 }}>
-            <Icon name="user-circle" size={75} color="white" />
-          </View>
-          <View style={{ flex: 2, justifyContent: "center", height: 85 }}>
-            <Text
-              style={{
-                color: "white",
-                marginLeft: 0,
-                fontSize: 18,
-                marginBottom: 10
-              }}
-            >
-              Sergey Tunegov
-            </Text>
-            <Text style={{ color: "white", marginLeft: 0, fontSize: 18 }}>
-              Rides: 1337
-            </Text>
-          </View>
-        </View>
-        <ScrollView
-          style={{
-            paddingTop: 20,
-            flex: 3,
-            borderColor: "white",
-            borderTopWidth: 1,
-            paddingLeft: 10
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={0.5}
-            onPress={this._redirectTo.bind(this)}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              padding: 10
-            }}
-          >
-            <Icon name="credit-card" size={25} color="white" />
-            <Text style={{ color: "white", marginLeft: 20, fontSize: 18 }}>
-              Payments
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.5}
-            onPress={this._redirectTo.bind(this)}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              padding: 10
-            }}
-          >
-            <Icon name="history" size={25} color="white" />
-            <Text style={{ color: "white", marginLeft: 20, fontSize: 18 }}>
-              Rides history
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.5}
-            onPress={this._redirectTo.bind(this)}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              padding: 10
-            }}
-          >
-            <Icon name="cog" size={25} color="white" />
-            <Text style={{ color: "white", marginLeft: 20, fontSize: 18 }}>
-              Settings
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.5}
-            onPress={this._redirectTo.bind(this)}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              padding: 10
-            }}
-          >
-            <Icon name="info-circle" size={25} color="white" />
-            <Text style={{ color: "white", marginLeft: 20, fontSize: 18 }}>
-              About
-            </Text>
-          </TouchableOpacity>
+      <View style={styles.container}>
+        <UserInfo rides={17} name={'John Doe'}/>
+        <ScrollView style={styles.menuItemsList}>
+          {this.getNavigationLayout()}
         </ScrollView>
       </View>
     );
   }
-}
-9;
+} ;

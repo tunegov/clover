@@ -137,6 +137,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-maps')
+    compile project(':react-native-linear-gradient')
+    compile project(':react-native-ble-connect')
     compile project(':react-native-appsee')
     compile project(':react-native-blur')
     compile project(':react-native-splash-screen')
