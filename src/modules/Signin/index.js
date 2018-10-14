@@ -4,7 +4,7 @@ import { Navigation }                                                 from "reac
 import Slogan 														  from "./components/Slogan";
 import ButtonsGroup													  from "./components/ButtonsGroup";
 import Logo												  			  from "./components/Logo";
-
+import styles 														  from './containerStyles';
 export default class SigninScreen extends PureComponent {
 	constructor( props ) {
 		super( props );
@@ -68,7 +68,7 @@ export default class SigninScreen extends PureComponent {
 	
 	render() {
 		return (
-			<View style={ styles.fullScreen }>
+			<View style={ styles.container }>
 				<Logo/>
 				<Slogan/>
 				<ButtonsGroup logIn={this._toLogin} signUp={this._toSignup}/>
@@ -76,12 +76,3 @@ export default class SigninScreen extends PureComponent {
 		);
 	}
 }
-
-
-const styles = StyleSheet.create( {
-	fullScreen: {
-		flex: 1,
-		marginHorizontal: 40,
-		paddingTop: 50
-	}
-} )
