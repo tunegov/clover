@@ -3,8 +3,7 @@ import { View, Animated, Easing, StatusBar } from "react-native";
 import LottieView from "lottie-react-native";
 import { Navigation } from "react-native-navigation";
 import SplashScreen from "react-native-splash-screen";
-import Appsee from 'react-native-appsee';
-
+import styles from "./containerStyles";
 export default class Splash extends React.PureComponent {
   state = {
     loadingProgress: new Animated.Value(0),
@@ -12,7 +11,6 @@ export default class Splash extends React.PureComponent {
   };
 
   componentDidMount() {
-    Appsee.startScreen('Loader')
     SplashScreen.hide();
 
     Animated.timing(this.state.progress, {
@@ -43,20 +41,13 @@ export default class Splash extends React.PureComponent {
     };
 
     return (
-      <Animated.View style={[{ flex: 1 }, visibleToClear]} >
+      <Animated.View style={[styles.flex1, visibleToClear]} >
         <View
-          style={[
-            {
-              flex: 1,
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "black"
-            }
-          ]}
+          style={styles.container}
         >
           <LottieView
             progress={this.state.progress}
-            style={{ height: 183 }}
+            style={styles.lottieView}
             loop={false}
             source={require("../Common/resources/loader.json")}
           />
