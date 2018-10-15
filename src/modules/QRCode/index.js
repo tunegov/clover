@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import LottieView from "lottie-react-native";
-
+import I18n from "react-native-i18n";
 export default class QRCodeScreen extends React.PureComponent {
   _redirectTo() {
     this.props.next && this.props.next();
@@ -20,9 +20,9 @@ export default class QRCodeScreen extends React.PureComponent {
         ]}
       >
         <Text
-          style={{ fontSize: 18, marginHorizontal: 30, textAlign: "center" }}
+          style={{ fontSize: 18, marginHorizontal: 30, fontFamily: 'Montserrat',fontWeight: '500', textAlign: "center" }}
         >
-          To get in rent electric scooter you should scan QR code on a handlebar
+          {I18n.t("qr.scanQR")}
         </Text>
         <LottieView
           style={{ height: 400, marginLeft: 10 }}
@@ -49,8 +49,8 @@ export default class QRCodeScreen extends React.PureComponent {
           }}
           onPress={this._redirectTo.bind(this)}
         >
-          <Text style={{ color: "white", fontSize: 24, fontWeight: "600" }}>
-            OK, I got it
+          <Text style={{ color: "white", fontSize: 24, fontWeight: "600",  fontFamily: 'Montserrat', }}>
+            {I18n.t("qr.ok")}
           </Text>
         </TouchableOpacity>
       </View>
