@@ -2,19 +2,15 @@ import React, { PureComponent } from "react";
 
 import {
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
   PermissionsAndroid,
   Platform,
   Dimensions,
-  Alert
 } from "react-native";
 
-import QRCodeScanner from "react-native-qrcode-scanner";
 import Permissions from "react-native-permissions";
 import { RNCamera as Camera } from "react-native-camera";
-import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const PERMISSION_AUTHORIZED = "authorized";

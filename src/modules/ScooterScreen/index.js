@@ -2,16 +2,15 @@ import React from "react";
 import {
   View,
   StatusBar,
-  ScrollView,
   Text,
   Image,
-  TouchableOpacity,
   Dimensions
 } from "react-native";
 import { Navigation } from "react-native-navigation";
 import { BlurView } from "react-native-blur";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import Appsee from 'react-native-appsee';
+import Button from "./components/Button";
+import I18n from "react-native-i18n";
 
 import scooterWhite from "../Common/resources/images/scooterWhite.png";
 import grayGradient from "../Common/resources/images/gray-gradient.jpg";
@@ -42,10 +41,6 @@ export default class ScooterScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
-  }
-
-  componentDidMount() {
-    Appsee.startScreen("Scooter screen")
   }
 
   navigationButtonPressed({ buttonId }) {
@@ -126,9 +121,11 @@ export default class ScooterScreen extends React.PureComponent {
           />
           <Text
             style={{
+              fontFamily: 'Montserrat',
               fontSize: 30,
               color: "white",
               textAlign: "center",
+              fontWeight: '700',
               marginVertical: 20
             }}
           >
@@ -168,10 +165,12 @@ export default class ScooterScreen extends React.PureComponent {
                   fontSize: 20,
                   color: "white",
                   textAlign: "center",
-                  marginVertical: 10
+                  fontFamily: 'Montserrat',
+                  marginVertical: 10,
+                  fontWeight: '700',
                 }}
               >
-                25 km/h
+                25 {I18n.translate( "scooter_info.kmH")}
               </Text>
             </View>
             <View
@@ -196,12 +195,14 @@ export default class ScooterScreen extends React.PureComponent {
               <Text
                 style={{
                   fontSize: 20,
+                  fontFamily: 'Montserrat',
                   color: "white",
                   textAlign: "center",
-                  marginVertical: 10
+                  marginVertical: 10,
+                  fontWeight: '700',
                 }}
               >
-                up to 25 km
+                {I18n.t( "scooter_info.upTo", {d: "30"})}
               </Text>
             </View>
             <View
@@ -228,8 +229,10 @@ export default class ScooterScreen extends React.PureComponent {
                 style={{
                   fontSize: 20,
                   color: "white",
+                  fontFamily: 'Montserrat',
                   textAlign: "center",
-                  marginVertical: 10
+                  marginVertical: 10,
+                  fontWeight: '700',
                 }}
               >
                 90%
@@ -255,20 +258,24 @@ export default class ScooterScreen extends React.PureComponent {
               style={{
                 fontSize: 20,
                 color: "white",
+                fontWeight: '700',
+                fontFamily: 'Montserrat',
                 marginVertical: 10
               }}
             >
-              Start rent price
+
+              {I18n.translate( "scooter_info.startPrice")}
               {"     "}
             </Text>
             <Text
               style={{
                 fontSize: 20,
                 color: "white",
+                fontFamily: 'Montserrat',
                 marginVertical: 10
               }}
             >
-              15 UAH
+              <Text style={{fontWeight: '700'}}>15</Text> UAH
             </Text>
           </View>
           <View
@@ -281,46 +288,26 @@ export default class ScooterScreen extends React.PureComponent {
               style={{
                 fontSize: 20,
                 color: "white",
-                marginVertical: 10
+                marginVertical: 10,
+                fontWeight: '700',
+                fontFamily: 'Montserrat',
               }}
             >
-              Price per minute
+              {I18n.translate( "scooter_info.minutePrice")}
             </Text>
             <Text
               style={{
                 fontSize: 20,
                 color: "white",
+                fontFamily: 'Montserrat',
                 marginVertical: 10
               }}
             >
-              0.3 UAH
+               <Text style={{fontWeight: '700'}}>1.0</Text> UAH
             </Text>
           </View>
         </View>
-        <TouchableOpacity
-          activeOpacity={0.9}
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            width: Dimensions.get("window").width,
-            height: 80,
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#e74c3c",
-            shadowOffset: { width: 0, height: -1 },
-            shadowColor: "#e74c3c",
-            shadowRadius: 0,
-            shadowOpacity: 1.0,
-            zIndex: 200
-          }}
-          onPress={this._rent.bind(this)}
-        >
-          <Text style={{ color: "white", fontSize: 30, fontWeight: "800" }}>
-            GO
-          </Text>
-        </TouchableOpacity>
+        <Button onPress={this._rent.bind(this)}/>
       </View>
     );
   }

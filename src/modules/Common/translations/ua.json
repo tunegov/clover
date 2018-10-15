@@ -13,5 +13,11 @@
         "no_account": "Немае аккаунту?",
         "signup_here": "Зареєструйся тут.",
         "login": "Увійти"
+    },
+    "scooter_info": {
+        "kmH": "км/г",
+        "upTo": "до %{d} км",
+        "startPrice": "Початкова ціна",
+        "minutePrice": "Ціна за хвилину"
     }
 }

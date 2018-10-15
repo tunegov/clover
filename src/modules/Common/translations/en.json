@@ -9,6 +9,15 @@
     "sign_in": {
         "start": "Start",
         "your": "your",
-        "adventure": "adventure"
+        "adventure": "adventure",
+        "no_account": "You don't have an account?",
+        "signup_here": "Sign up here.",
+        "login": "Log in"
+    },
+    "scooter_info": {
+        "kmH": "km/h",
+        "upTo": "up to %{distance} km",
+        "startPrice": "Start rent price",
+        "minutePrice": "Price per minute"
     }
 }
