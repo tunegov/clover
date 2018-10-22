@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "lottie-react-native": "^2.5.9",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "^0.57.3",
