@@ -3,28 +3,27 @@
 import React, { PureComponent }        from 'react';
 import { StyleSheet, TextInput, View } from 'react-native'
 import Icon                            from "react-native-vector-icons/FontAwesome5";
-
-type Props = {
-	icon: string,
-	iconColor: string,
-	placeholder: string,
-	placeholderTextColor: string,
-	onChangeText: () => any
-}
-
-export default class TextInputWithIcon extends PureComponent<Props> {
-	
+export default class TextInputWithIcon extends PureComponent {
 	render() {
+		console.log(this.props)
+		const {
+			input,
+			meta,
+			...inputProps
+		} = this.props
+		const error = meta.touched && meta.error
+
 		return (
 			<View style={ styles.textInput }>
-				<Icon style={ styles.icon } name={ this.props.icon } size={ 20 } color={ this.props.iconColor }/>
+				<Icon style={ styles.icon } name={inputProps.icon} size={ 20 } color={ this.props.iconColor }/>
 				<TextInput
 					style={ styles.input }
-					placeholder={ this.props.placeholder }
-					placeholderTextColor={ this.props.placeholderTextColor }
-					onChangeText={ this.props.onChangeText }
-					underlineColorAndroid="transparent"
-					{ ...this.props }
+					style={[styles.input, inputProps.customInputStyle, error && styles.errorText]}
+					{...inputProps}
+					onChangeText={input.onChange}
+					onBlur={input.onBlur}
+					onFocus={input.onFocus}
+					value={input.value}
 				/>
 			</View>
 		);

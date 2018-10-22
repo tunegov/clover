@@ -19,5 +19,12 @@
         "upTo": "up to %{distance} km",
         "startPrice": "Start rent price",
         "minutePrice": "Price per minute"
+    },
+    "qr": {
+        "scanQR": "To get in rent electric scooter you should scan QR code on a handlebar",
+        "ok": "OK, I got it"
+    },
+    "login": {
+       "firstTime": "First time here?" 
     }
 }

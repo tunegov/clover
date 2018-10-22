@@ -11,7 +11,7 @@ import {
 import LoaderNoAnimation from "./LoaderNoAnimation";
 
 import MapView from "react-native-maps";
-
+//@TODO refactor it 
 const Images = [
   { uri: "https://i.imgur.com/sNam9iJ.jpg" },
   { uri: "https://i.imgur.com/N7rlQYt.jpg" },
