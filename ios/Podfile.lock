@@ -49,6 +49,10 @@ PODS:
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 2.5.0)
     - React
+  - react-native-image-picker (0.14.3):
+    - React
+  - react-native-image-resizer (1.0.0):
+    - React
   - react-native-maps (0.22.0):
     - React
   - react-native-splash-screen (3.1.1):
@@ -100,6 +104,8 @@ PODS:
     - React/RCTBlob
   - ReactNativePermissions (1.1.1):
     - React
+  - RNFS (2.12.0):
+    - React
   - RNI18n (2.0.15):
     - React
   - RNVectorIcons (6.0.2):
@@ -118,6 +124,8 @@ DEPENDENCIES:
   - react-native-blur (from `../node_modules/react-native-blur`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-google-maps (from `../node_modules/react-native-maps`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+  - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React/Core (from `../node_modules/react-native`)
@@ -134,6 +142,7 @@ DEPENDENCIES:
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - ReactNativePermissions (from `../node_modules/react-native-permissions`)
+  - RNFS (from `../node_modules/react-native-fs`)
   - RNI18n (from `../node_modules/react-native-i18n`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
@@ -165,12 +174,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-google-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
+  react-native-image-resizer:
+    :path: "../node_modules/react-native-image-resizer"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
   ReactNativePermissions:
     :path: "../node_modules/react-native-permissions"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
   RNI18n:
     :path: "../node_modules/react-native-i18n"
   RNVectorIcons:
@@ -192,13 +207,16 @@ SPEC CHECKSUMS:
   react-native-blur: c35c1f6c2c76db7108bde7ed343bd2b01d64e0c0
   react-native-camera: ec435a5b2498faa288b4574e005d5c1021f18608
   react-native-google-maps: b946d62e25dc66097921ed82520e45b0b081768a
+  react-native-image-picker: b303e31c3c4ada1d7cb1342423d328d2efb07fb3
+  react-native-image-resizer: 04a3409e7d4ad646c4468671c69dec490def139c
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   react-native-splash-screen: 8e3f866dc79bfe533baeffd0a38c33f7a7eae7f8
   ReactNativePermissions: 9f2d9c45c98800795e6c2ed330e25d11a66a8169
+  RNFS: bbb1a64eb245763daf34aea86f97c97c4e85f74c
   RNI18n: 46b8694063fbd699f2c06a4dc8e835b3176763b1
   RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 9b5a791f588a785c21d0ad7b7032335b4072002d
+PODFILE CHECKSUM: d8ed478c7aaba6c2eab700ca6194b71b86d92571
 
 COCOAPODS: 1.5.3

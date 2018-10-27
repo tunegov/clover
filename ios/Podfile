@@ -48,6 +48,12 @@ target 'CloverCompany' do
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'react-native-image-resizer', :path => '../node_modules/react-native-image-resizer'
+
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
 end
 
 post_install do |installer|

@@ -1,5 +1,5 @@
 const { Navigation } = require( "react-native-navigation" );
-const { registerScreens } = require( "./modules" );
+const { registerScreens } = require( "./containers" );
 const { Platform } = require( "react-native" );
 
 if ( Platform.OS === "android" ) {
