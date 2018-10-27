@@ -208,7 +208,7 @@ export default class SignupScreen extends Component {
 				/>
 				
 				<View style={ styles.bottom }>
-					<RoundedButton text={ this.state.index === 0 ? 'Next' : 'Sign up' }
+					<RoundedButton text={ this.state.index === 0 ? I18n.t('auth.next') :   I18n.t('auth.signup')}
 					               color={ '#000' }
 					               onPress={ this.state.index === 0 ? this._nextScreen.bind( this ) : this.goToMainApp.bind( this ) }/>
 					{ !this.props.fromLogIn && (

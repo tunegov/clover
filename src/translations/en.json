@@ -38,6 +38,7 @@
         "steps": "steps",
         "firstTime": "First time here?", 
         "haveAccount": "Do you have account?",
-        "confirmPassword": "CONFIRM PASSWORD"
+        "confirmPassword": "CONFIRM PASSWORD",
+        "next": "Next"
     }
 }
