@@ -1,7 +1,7 @@
 git_url("https://burya44ok@bitbucket.org/burya44ok/clover-certificates.git")
 type("development") 
 
-app_identifier 'cc.rent.app'
+app_identifier 'com.comparo.app'
 username("s.e.tunegov@gmail.com") #Apple ID
 
 shallow_clone true

@@ -64,32 +64,15 @@ function start() {
 
 		Navigation.setRoot({
 			root: {
-				sideMenu: {
-					left: {
-						width: 250,
-						shouldStretchDrawer: false,
-						component: {
-							id: "DrawerLeft",
-							name: "clover.rent.DrawerLeft"
+				stack: {
+					id: "SigninScreen",
+					children: [
+						{
+							component: {
+								name: "clover.rent.SigninScreen"
+							}
 						}
-					},
-					center: {
-						stack: {
-							id: "MapViewPage",
-							children: [
-								{
-									component: {
-										name: "clover.rent.MapViewPage",
-										options: {
-											topBar: {
-												visible: false
-											}
-										}
-									}
-								}
-							]
-						}
-					}
+					]
 				}
 			}
 		});
@@ -98,17 +81,17 @@ function start() {
 		Crashlytics.setUserEmail('s.e.tunegov@clover-company.cc');
 		Crashlytics.setUserIdentifier('1337');
 
-		// await Navigation.showOverlay( {
-		// 	component: {
-		// 		name: "clover.rent.Loader",
-		// 		options: {
-		// 			overlay: {
-		// 				interceptTouchOutside: true
-		// 			},
-		// 			modalPresentationStyle: "overCurrentContext"
-		// 		}
-		// 	}
-		// } );
+		await Navigation.showOverlay({
+			component: {
+				name: "clover.rent.Loader",
+				options: {
+					overlay: {
+						interceptTouchOutside: true
+					},
+					modalPresentationStyle: "overCurrentContext"
+				}
+			}
+		});
 	});
 }
 

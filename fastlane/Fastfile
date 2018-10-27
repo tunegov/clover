@@ -16,16 +16,16 @@
 default_platform(:ios)
 
 before_all do
-  ensure_git_branch
-  ensure_git_status_clean
-  git_pull
+  #ensure_git_branch
+  #ensure_git_status_clean
+  #git_pull
 end
 
 platform :ios do
    # iOS Lanes
     desc 'Fetch certificates and provisioning profiles'
     lane :certificates do
-        match(app_identifier: 'cc.rent.app', type: 'development', readonly: true)
+        match(app_identifier: 'com.comparo.app', type: 'development', readonly: true)
     end
     
     desc 'Build the iOS application.'
@@ -36,8 +36,9 @@ platform :ios do
     end
 
     lane :beta do
-        build
+        build_app(workspace: './ios/CloverCompany.xcworkspace', scheme: 'CloverCompany', export_method: "ad-hoc")
         crashlytics(api_token: "1df0dca4b42c88585130567234678b1d9102cedc",
+                    notes: "Initial release",
                     build_secret: "def11e20fb1e9e3a0f6d885998481fa32b35c48237a16cf300c43d792ccb1ec7")
     end
 end
