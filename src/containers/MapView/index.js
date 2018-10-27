@@ -12,6 +12,7 @@ import QRButton from "../../components/MapView/QRButton";
 import MenuButton from "../../components/MapView/MenuButton";
 import * as ROUTES from "../../constants";
 import styles from "./containerStyles";
+import { Answers } from 'react-native-fabric';
 
 const { width, height } = Dimensions.get("window");
 
@@ -40,6 +41,9 @@ export default class MapViewPage extends PureComponent {
     this.toggleMenu = this.toggleMenu.bind(this)
   }
   componentDidMount() {
+
+    Answers.logContentView("Map view", "SCREEN", ROUTES.MAP_VIEW)
+
     setTimeout(() => {
       navigator.geolocation.getCurrentPosition(position => {
         let region = {
@@ -84,8 +88,8 @@ export default class MapViewPage extends PureComponent {
   render() {
     return (
       <View style={styles.container} >
-        <MenuButton onPress={this.toggleMenu}/>       
-        <QRButton onPress={this.redirectTo}/>     
+        <MenuButton onPress={this.toggleMenu} />
+        <QRButton onPress={this.redirectTo} />
         <MapView
           ref={mapRef => (this.mapRef = mapRef)}
           style={StyleSheet.absoluteFillObject}

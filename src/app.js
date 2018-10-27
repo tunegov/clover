@@ -1,10 +1,12 @@
-const { Navigation } = require( "react-native-navigation" );
-const { registerScreens } = require( "./containers" );
-const { Platform } = require( "react-native" );
+const { Navigation } = require("react-native-navigation");
+const { registerScreens } = require("./containers");
+const { Platform } = require("react-native");
 
-if ( Platform.OS === "android" ) {
+import { Crashlytics } from 'react-native-fabric';
+
+if (Platform.OS === "android") {
 	alert = title => {
-		Navigation.showOverlay( {
+		Navigation.showOverlay({
 			component: {
 				name: "clover.rent.alert",
 				passProps: {
@@ -16,17 +18,17 @@ if ( Platform.OS === "android" ) {
 					}
 				}
 			}
-		} );
+		});
 	};
 }
 
 function start() {
 	registerScreens();
-	Navigation.events().registerAppLaunchedListener( async () => {
-		Navigation.setDefaultOptions( {
+	Navigation.events().registerAppLaunchedListener(async () => {
+		Navigation.setDefaultOptions({
 			layout: {
 				backgroundColor: "black",
-				orientation: [ "portrait" ]
+				orientation: ["portrait"]
 			},
 			animations: {
 				push: {
@@ -58,35 +60,56 @@ function start() {
 					visible: false
 				}
 			}
-		} );
-		
-		Navigation.setRoot( {
+		});
+
+		Navigation.setRoot({
 			root: {
-				stack: {
-					id: "SigninScreen",
-					children: [
-						{
-							component: {
-								name: "clover.rent.SigninScreen"
-							}
+				sideMenu: {
+					left: {
+						width: 250,
+						shouldStretchDrawer: false,
+						component: {
+							id: "DrawerLeft",
+							name: "clover.rent.DrawerLeft"
 						}
-					]
-				}
-			}
-		} );
-		
-		await Navigation.showOverlay( {
-			component: {
-				name: "clover.rent.Loader",
-				options: {
-					overlay: {
-						interceptTouchOutside: true
 					},
-					modalPresentationStyle: "overCurrentContext"
+					center: {
+						stack: {
+							id: "MapViewPage",
+							children: [
+								{
+									component: {
+										name: "clover.rent.MapViewPage",
+										options: {
+											topBar: {
+												visible: false
+											}
+										}
+									}
+								}
+							]
+						}
+					}
 				}
 			}
-		} );
-	} );
+		});
+
+		Crashlytics.setUserName('burya4ok');
+		Crashlytics.setUserEmail('s.e.tunegov@clover-company.cc');
+		Crashlytics.setUserIdentifier('1337');
+
+		// await Navigation.showOverlay( {
+		// 	component: {
+		// 		name: "clover.rent.Loader",
+		// 		options: {
+		// 			overlay: {
+		// 				interceptTouchOutside: true
+		// 			},
+		// 			modalPresentationStyle: "overCurrentContext"
+		// 		}
+		// 	}
+		// } );
+	});
 }
 
 module.exports = {

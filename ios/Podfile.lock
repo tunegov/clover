@@ -2,7 +2,10 @@ PODS:
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.4.2):
     - React
+  - Crashlytics (3.11.0):
+    - Fabric (~> 1.8.0)
   - DoubleConversion (1.1.6)
+  - Fabric (1.8.0)
   - Folly (2016.10.31.00):
     - boost-for-react-native
     - DoubleConversion
@@ -102,6 +105,10 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - ReactNativeFabric (0.5.2):
+    - Crashlytics
+    - Fabric
+    - React
   - ReactNativePermissions (1.1.1):
     - React
   - RNFS (2.12.0):
@@ -114,7 +121,9 @@ PODS:
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
+  - Crashlytics
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Fabric
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - Google-Maps-iOS-Utils
@@ -141,6 +150,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - ReactNativeFabric (from `../node_modules/react-native-fabric`)
   - ReactNativePermissions (from `../node_modules/react-native-permissions`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNI18n (from `../node_modules/react-native-i18n`)
@@ -150,6 +160,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
+    - Crashlytics
+    - Fabric
     - Google-Maps-iOS-Utils
     - GoogleMaps
 
@@ -182,6 +194,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
+  ReactNativeFabric:
+    :path: "../node_modules/react-native-fabric"
   ReactNativePermissions:
     :path: "../node_modules/react-native-permissions"
   RNFS:
@@ -196,7 +210,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: 6d8909e3fc6b089defa4b89d967441fa6827a2ee
+  Crashlytics: 1448070c1d2731ab71ea7c3faf84ac0f69657287
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
@@ -211,12 +227,13 @@ SPEC CHECKSUMS:
   react-native-image-resizer: 04a3409e7d4ad646c4468671c69dec490def139c
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   react-native-splash-screen: 8e3f866dc79bfe533baeffd0a38c33f7a7eae7f8
+  ReactNativeFabric: 01c1333f76fd4708a5833d71f0a4832a9266bf0f
   ReactNativePermissions: 9f2d9c45c98800795e6c2ed330e25d11a66a8169
   RNFS: bbb1a64eb245763daf34aea86f97c97c4e85f74c
   RNI18n: 46b8694063fbd699f2c06a4dc8e835b3176763b1
   RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: d8ed478c7aaba6c2eab700ca6194b71b86d92571
+PODFILE CHECKSUM: 394efc528e36689758d40289e3520441fe42b8c6
 
 COCOAPODS: 1.5.3

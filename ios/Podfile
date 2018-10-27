@@ -32,6 +32,9 @@ target 'CloverCompany' do
   #pod 'GLog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
 
+  pod 'Fabric'
+  pod 'Crashlytics'
+
   # react-native-maps dependencies
   pod 'react-native-maps', path: rn_maps_path
   pod 'react-native-google-maps', path: rn_maps_path  # Remove this line if you don't want to support GoogleMaps on iOS
@@ -45,14 +48,12 @@ target 'CloverCompany' do
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
   pod 'react-native-blur', :path => '../node_modules/react-native-blur'
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
-
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
-
   pod 'react-native-image-resizer', :path => '../node_modules/react-native-image-resizer'
-
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+  pod 'ReactNativeFabric', :path => '../node_modules/react-native-fabric'
 
 end
 
