@@ -24,7 +24,20 @@
         "scanQR": "To get in rent electric scooter you should scan QR code on a handlebar",
         "ok": "OK, I got it"
     },
-    "login": {
-       "firstTime": "First time here?" 
+    "auth": {
+        "e-mail": "E-mail",
+        "password": "Password",
+        "login": "Log in",
+        "signup": "Sign up",
+        "name": "NAME",
+        "username": "USERNAME",
+        "new": "New",
+        "account": "Account",
+        "photoUpload": "Upload a profile image",
+        "optional": "optional",
+        "steps": "steps",
+        "firstTime": "First time here?", 
+        "haveAccount": "Do you have account?",
+        "confirmPassword": "CONFIRM PASSWORD"
     }
 }

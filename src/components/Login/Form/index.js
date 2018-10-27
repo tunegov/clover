@@ -50,6 +50,7 @@ import { reduxForm, Field } from 'redux-form';
 import { ScrollView, Text, TouchableOpacity } from 'react-native';
 import TextInputWithIcon        from '../../Common/TextInputWithIcon'
 import validations              from './validations'
+import I18n                     from 'react-native-i18n'
 
 function MyForm(props) {
 
@@ -62,7 +63,7 @@ function MyForm(props) {
          icon={ 'user' }
 		  			  iconColor={ '#fff' }
 		  			  placeholderTextColor={ '#808e9b' }
-		  			  placeholder={ 'E-mail' }
+		  			  placeholder={ I18n.t("auth.e-mail") }
 		  			  name={'user'}
 		  			  component={ TextInputWithIcon }
 		  			  validate={validations.email}
@@ -72,7 +73,7 @@ function MyForm(props) {
 			  icon={ 'lock' }
 			  iconColor={ '#fff' }
 			  placeholderTextColor={ '#808e9b' }
-			  placeholder={ 'Password' }
+			  placeholder={ I18n.t("auth.password") }
 			  secureTextEntry
 			  name={'password'}
 			  component={ TextInputWithIcon }

@@ -2,7 +2,7 @@ import React                    from 'react';
 import { View, Text, TouchableOpacity }                 from 'react-native'
 import RoundedButton            from '../../../Common/components/RoundedButton'
 import styles                   from './styles'
-
+import I18n                     from 'react-native-i18n'
 
 const ButtonsGroup = ({ handleSubmit, fromSignUp, toSignup}) => (
     <View style={ styles.bottom }>
@@ -10,11 +10,11 @@ const ButtonsGroup = ({ handleSubmit, fromSignUp, toSignup}) => (
         { !fromSignUp && (
             <View style={ styles.signUpGroup }>
                 <Text style={ styles.signUpAsk }>
-                    First time here?
+                    {I18n.t("auth.firstTime")}
                 </Text>
                 <TouchableOpacity activeOpacity={ 0.7 } onPress={ toSignup }>
                     <Text style={ styles.signUpButton }>
-                        Sign up.
+                        {I18n.t("auth.signup")}
                     </Text>
                 </TouchableOpacity>
             </View>

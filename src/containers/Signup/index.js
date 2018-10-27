@@ -9,6 +9,8 @@ import RoundedButton                                                            
 import TextInputWithText
                                                                                      from '../../components/Common/TextInputWithText'
 
+
+import I18n from 'react-native-i18n'
 export default class SignupScreen extends Component {
 	state = {
 		index: 0
@@ -135,10 +137,10 @@ export default class SignupScreen extends Component {
 				<View style={ styles.topBar }>
 					<View style={ styles.title }>
 						<Text style={ styles.titleText }>
-							New
+							{I18n.t('auth.new')}
 						</Text>
 						<Text style={ styles.titleText }>
-							Account
+							{I18n.t('auth.account')}
 						</Text>
 					</View>
 					<View style={ styles.progress }>
@@ -147,7 +149,7 @@ export default class SignupScreen extends Component {
 							{ ' ' }/ 2
 						</Text>
 						
-						<Text style={ styles.progressSteps }>STEPS</Text>
+						<Text style={ styles.progressSteps }>{I18n.t('auth.steps')}</Text>
 					</View>
 				</View>
 				<FlatList
@@ -166,18 +168,18 @@ export default class SignupScreen extends Component {
 										<Icon name="link" size={ 25 } color="#808e9b"/>
 									</View>
 									<View style={ styles.imageTexts }>
-										<Text style={ styles.imageText }>Upload a profile image</Text>
-										<Text style={ styles.imageText }>(optional)</Text>
+										<Text style={ styles.imageText }>{I18n.t('auth.photoUpload')}</Text>
+										<Text style={ styles.imageText }>({I18n.t('auth.optional')})</Text>
 									</View>
 								
 								</View>
 								<View style={ { flex: 1 } }>
 									<TextInputWithText
-										text={ 'Name' }
+										text={ I18n.t('auth.name') }
 										placeholderTextColor={ '#808e9b' }
 									/>
 									<TextInputWithText
-										text={ 'User' }
+										text={ I18n.t('auth.username') }
 										placeholderTextColor={ '#808e9b' }
 										secureTextEntry
 									/>
@@ -187,16 +189,16 @@ export default class SignupScreen extends Component {
 						) : (
 							<View style={ styles.step }>
 								<TextInputWithText
-									text={ 'E-Mail' }
+									text={ I18n.t('auth.e-mail') }
 									placeholderTextColor={ '#808e9b' }
 								/>
 								<TextInputWithText
-									text={ 'Password' }
+									text={ I18n.t('auth.password') }
 									placeholderTextColor={ '#808e9b' }
 									secureTextEntry
 								/>
 								<TextInputWithText
-									text={ 'Repeat password' }
+									text={ I18n.t('auth.confirmPassword') }
 									placeholderTextColor={ '#808e9b' }
 									secureTextEntry
 								/>
@@ -212,11 +214,11 @@ export default class SignupScreen extends Component {
 					{ !this.props.fromLogIn && (
 						<View style={ styles.signUpGroup }>
 							<Text style={ styles.signUpAsk }>
-								Not first time here?
+								{I18n.t('auth.haveAccount')}
 							</Text>
 							<TouchableOpacity activeOpacity={ 0.7 } onPress={ this._toLogin.bind( this ) }>
 								<Text style={ styles.signUpButton }>
-									Log in.
+								{I18n.t('auth.login')}.
 								</Text>
 							</TouchableOpacity>
 						</View>

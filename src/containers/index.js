@@ -20,10 +20,11 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 I18n.fallbacks = true
 I18n.translations = {
+  ua: require("../translations/ua"),
 	en: require("../translations/en"),
-	ua: require("../translations/ua")
 }
 
+I18n.locale = 'ua'
 
 const createApp = (Component, ...props) => {
   return class App extends React.Component {
