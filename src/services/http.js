@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import jwtStorage from './jwtStorage'
+import jwtStorage from './jwtstorage'
 import appConfig from '../config'
 
 export default new class HTTP {

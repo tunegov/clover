@@ -1,6 +1,10 @@
 const { Navigation } = require( "react-native-navigation" );
 const { registerScreens } = require( "./containers" );
 const { Platform } = require( "react-native" );
+import store from './store'
+import * as ROUTES from './constants'
+
+const isAuthenticated = store.store.getState().auth.user
 
 if ( Platform.OS === "android" ) {
 	alert = title => {
@@ -60,20 +64,37 @@ function start() {
 			}
 		} );
 		
-		Navigation.setRoot( {
-			root: {
-				stack: {
-					id: "SigninScreen",
-					children: [
-						{
-							component: {
-								name: "clover.rent.SigninScreen"
+		if(isAuthenticated) {
+			Navigation.setRoot( {
+				root: {
+					stack: {
+						id:  ROUTES.MAP_VIEW,
+						children: [
+							{
+								component: {
+									name: ROUTES.MAP_VIEW
+								}
 							}
-						}
-					]
+						]
+					}
 				}
-			}
-		} );
+			} );
+		} else {
+			Navigation.setRoot( {
+				root: {
+					stack: {
+						id: ROUTES.SIGN_IN,
+						children: [
+							{
+								component: {
+									name: ROUTES.SIGN_IN
+								}
+							}
+						]
+					}
+				}
+			} );
+		}
 		
 		await Navigation.showOverlay( {
 			component: {

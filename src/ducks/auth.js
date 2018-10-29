@@ -1,14 +1,14 @@
 import { createAction } from 'redux-actions'
 import {takeEvery, call, put} from 'redux-saga/effects'
-import jwtStorage from '../../services/jwtStorage'
-import http from '../../services/http'
+import jwtStorage from '../services/jwtstorage'
+import http from '../services/http'
 
 //Actions
 export const SIGN_UP = 'SIGN_UP'
 export const signUpAction = createAction(SIGN_UP)
 
-export const LOGIN = 'LOGIN'
-export const loginAction = createAction(LOGIN)
+export const SIGN_IN = 'SIGN_IN'
+export const signInAction = createAction(SIGN_IN)
 
 export const SET_USER = 'SET_USER'
 export const setUserAction = createAction(SET_USER)
@@ -16,24 +16,23 @@ export const setUserAction = createAction(SET_USER)
 export const LOGOUT = 'LOGOUT'
 export const logoutAction = createAction(LOGOUT)
 
-const initState = {
+//Reducer
+
+const initialState = {
     user: null
 }
 
-//Reducer
-export default (state = initState, {type, payload}) => {
-	switch (type) {
+export const authReducer = (state = initialState, action) => {
+	switch (action.type) {
 		case SET_USER:
 			return {
-				user: payload.username,
+				user: action.payload.username,
             }
 
 		default:
 			return state
 	}
 }
-
-
 
 //Saga
 function* login({payload}) {
@@ -88,8 +87,8 @@ function* logout() {
 	}
 }
 
-export default function* () {
-    yield takeEvery(LOGIN, login)
+export function* authSaga() {
+    yield takeEvery(SIGN_IN, login)
     yield takeEvery(SIGN_UP, signUp)
     yield takeEvery(LOGOUT, logout)
 }

@@ -1,13 +1,15 @@
 import React, { PureComponent }                                       from 'react';
-import { StatusBar, View } from 'react-native'
+import { StatusBar, View } 											  from 'react-native'
 import { Navigation }                                                 from "react-native-navigation";
 import Slogan 														  from "../../components/Signin/Slogan";
 import ButtonsGroup													  from "../../components/Signin/ButtonsGroup";
 import Logo												  			  from "../../components/Signin/Logo";
 import styles 														  from './containerStyles';
 import * as ROUTES													  from '../../constants';
+import { connect }                     								  from 'react-redux';
+import { signInAction }												  from '../../ducks/auth';
 
-export default class SigninScreen extends PureComponent {
+class SigninScreen extends PureComponent {
 	constructor( props ) {
 		super( props );
 		Navigation.events().bindComponent( this );
@@ -69,6 +71,7 @@ export default class SigninScreen extends PureComponent {
 	}
 	
 	render() {
+		alert(this.props.user)
 		return (
 			<View style={ styles.container }>
 				<Logo/>
@@ -78,3 +81,13 @@ export default class SigninScreen extends PureComponent {
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+    user: state.auth.user
+});
+
+const mapDispatchToProps = ({
+    signInAction
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SigninScreen)

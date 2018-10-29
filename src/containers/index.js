@@ -32,7 +32,6 @@ const createApp = (Component, ...props) => {
       return (
         <Provider store={store.store}>
           <PersistGate
-            loading={<SplashScreen/>}
             persistor={store.persistor}
           >
             <Component {...{
@@ -47,17 +46,17 @@ const createApp = (Component, ...props) => {
 }
 
 function registerScreens() {
-	Navigation.registerComponent( ROUTES.SPLASH_SCREEN, () => SplashScreen );
-	Navigation.registerComponent( ROUTES.BLE, () => BleScreen );
-	Navigation.registerComponent( ROUTES.MAP_VIEW, () => MapViewPage );
-	Navigation.registerComponent( ROUTES.QR_CODE, () => QRCodeScreen );
-	Navigation.registerComponent( ROUTES.QR_SWIPER, () => QRSwiper );
-	Navigation.registerComponent( ROUTES.DRAWER_LEFT, () => DrawerLeft );
-	Navigation.registerComponent( ROUTES.SIGN_IN, () => SigninScreen );
+	Navigation.registerComponent( ROUTES.SPLASH_SCREEN, () => createApp(SplashScreen) );
+	Navigation.registerComponent( ROUTES.BLE, () => createApp(BleScreen ));
+	Navigation.registerComponent( ROUTES.MAP_VIEW, () => createApp(MapViewPage) );
+	Navigation.registerComponent( ROUTES.QR_CODE, () => createApp(QRCodeScreen) );
+	Navigation.registerComponent( ROUTES.QR_SWIPER, () => createApp(QRSwiper) );
+	Navigation.registerComponent( ROUTES.DRAWER_LEFT, () => createApp(DrawerLeft) );
+	Navigation.registerComponent( ROUTES.SIGN_IN, () => createApp(SigninScreen) );
 	Navigation.registerComponent( ROUTES.LOG_IN, () => createApp(LoginScreen));
-	Navigation.registerComponent( ROUTES.SIGN_UP, () => SignupScreen );
-	Navigation.registerComponent( ROUTES.SCOOTER_INFO, () => ScooterScreen );
-	Navigation.registerComponent( ROUTES.QR_CODE_SCANNER, () => QRCodeScanner);
+	Navigation.registerComponent( ROUTES.SIGN_UP, () => createApp( SignupScreen) );
+	Navigation.registerComponent( ROUTES.SCOOTER_INFO, () => createApp(ScooterScreen) );
+	Navigation.registerComponent( ROUTES.QR_CODE_SCANNER, () => createApp(QRCodeScanner));
 }
 
 module.exports = {
